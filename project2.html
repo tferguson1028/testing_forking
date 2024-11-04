@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Personality Quiz</title>
+  <style>
+    /* CSS styling for the quiz */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    .quiz-container {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .question {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .options button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px 0;
+      transition: background-color 0.3s;
+    }
+
+    .options button:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #4CAF50;
+    }
+
+    #restart {
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>What's Your Personality Type?</h1>
+    <div id="quiz">
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+    </div>
+    <div id="result"></div>
+    <button id="restart" onclick="restartQuiz()">Restart Quiz</button>
+  </div>
+
+  <script>
+    // JavaScript for the quiz functionality
+    const questions = [
+      {
+        question: "What's your favorite time of day?",
+        options: ["Morning", "Afternoon", "Evening", "Night"],
+        answers: [1, 2, 3, 4]
+      },
+      {
+        question: "What do you like to do on weekends?",
+        options: ["Explore outdoors", "Read a book", "Hang out with friends", "Relax at home"],
+        answers: [2, 1, 4, 3]
+      },
+      {
+        question: "Choose an animal that resonates with you:",
+        options: ["Lion", "Dolphin", "Eagle", "Cat"],
+        answers: [4, 2, 1, 3]
+      },
+      {
+        question: "How do you handle stress?",
+        options: ["Exercise", "Meditate", "Talk to someone", "Sleep it off"],
+        answers: [1, 2, 4, 3]
+      }
+    ];
+
+    const results = {
+      4: "You're a go-getter and natural leader!",
+      5: "You're thoughtful and introspective!",
+      6: "You're adventurous and love new experiences!",
+      7: "You're calm, cool, and collected!"
+    };
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const resultEl = document.getElementById("result");
+    const restartBtn = document.getElementById("restart");
+
+    function loadQuestion() {
+      questionEl.textContent = questions[currentQuestion].question;
+      optionsEl.innerHTML = ""; // Clear previous options
+      questions[currentQuestion].options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.onclick = () => selectAnswer(questions[currentQuestion].answers[index]);
+        optionsEl.appendChild(button);
+      });
+    }
+
+    function selectAnswer(answer) {
+      score += answer;
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      questionEl.style.display = "none";
+      optionsEl.style.display = "none";
+      if (score <= 5) {
+        resultEl.textContent = results[4];
+      } else if (score <= 8) {
+        resultEl.textContent = results[5];
+      } else if (score <= 10) {
+        resultEl.textContent = results[6];
+      } else {
+        resultEl.textContent = results[7];
+      }
+      restartBtn.style.display = "inline-block";
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      questionEl.style.display = "block";
+      optionsEl.style.display = "flex";
+      resultEl.textContent = "";
+      restartBtn.style.display = "none";
+      loadQuestion();
+    }
+
+    // Start the quiz
+    loadQuestion();
+  </script>
+
+</body>
+</html>
