@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Political & Tech Innovators Trivia Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2e2e2e;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      max-width: 600px;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      color: #ffd700;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+    .question {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #next-btn {
+      background-color: #28a745;
+      margin-top: 15px;
+    }
+    #next-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Political & Tech Innovators Trivia Game</h1>
+  <div id="score">Score: 0</div>
+  <img id="trivia-image" src="" alt="Trivia Image" />
+  <div class="question" id="question">Loading question...</div>
+  <div id="options"></div>
+  <button id="next-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
+</div>
+
+<script>
+  // Questions and answers array
+  const questions = [
+    {
+      question: "Who was the first African American woman to go to space?",
+      answers: ["Mae Jemison", "Katherine Johnson", "Dorothy Vaughan", "Annie Easley"],
+      correct: "Mae Jemison",
+      image: "https://www.nasa.gov/sites/default/files/thumbnails/image/mae_jemison.jpg"
+    },
+    {
+      question: "Who developed the foundations for the GPS?",
+      answers: ["Gladys West", "Melba Roy", "Mark Dean", "John Thompson"],
+      correct: "Gladys West",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Gladys_West_2018.png/800px-Gladys_West_2018.png"
+    },
+    {
+      question: "Who co-founded the NAACP and was a leading civil rights activist?",
+      answers: ["W. E. B. Du Bois", "Frederick Douglass", "Marcus Garvey", "James Baldwin"],
+      correct: "W. E. B. Du Bois",
+      image: "https://upload.wikimedia.org/wikipedia/commons/1/16/WEB_Du_Bois_1918.jpg"
+    },
+    {
+      question: "Who co-invented the first IBM personal computer?",
+      answers: ["Mark Dean", "John Thompson", "George Carruthers", "Otis Boykin"],
+      correct: "Mark Dean",
+      image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Mark_Dean.jpg"
+    }
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+
+  // Load the initial question
+  function loadQuestion() {
+    const questionObj = questions[currentQuestion];
+    document.getElementById("question").textContent = questionObj.question;
+    document.getElementById("trivia-image").src = questionObj.image;
+
+    const options = document.getElementById("options");
+    options.innerHTML = "";
+    questionObj.answers.forEach(answer => {
+      const button = document.createElement("button");
+      button.textContent = answer;
+      button.onclick = () => checkAnswer(answer);
+      options.appendChild(button);
+    });
+    document.getElementById("next-btn").style.display = "none";
+  }
+
+  // Check the answer
+  function checkAnswer(answer) {
+    const questionObj = questions[currentQuestion];
+    if (answer === questionObj.correct) {
+      alert("Correct!");
+      score++;
+      document.getElementById("score").textContent = "Score: " + score;
+    } else {
+      alert("Incorrect! The correct answer was " + questionObj.correct);
+    }
+    document.getElementById("next-btn").style.display = "inline-block";
+  }
+
+  // Load the next question or end the game
+  function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      loadQuestion();
+    } else {
+      document.getElementById("question").textContent = "Congratulations! You've completed the trivia!";
+      document.getElementById("options").innerHTML = "";
+      document.getElementById("trivia-image").style.display = "none";
+      document.getElementById("next-btn").style.display = "none";
+    }
+  }
+
+  // Start the game
+  loadQuestion();
+</script>
+
+</body>
+</html>
