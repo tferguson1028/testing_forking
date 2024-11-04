@@ -11,7 +11,6 @@ body {
   background-color: #FFDD00;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
   background-size: 40px 40px; /* Larger grid */
-  
 }
 
 header {
@@ -20,13 +19,12 @@ header {
 }
 
 .logo {
-  max-width: 150px; /* Adjust size as needed */
+  max-width: 150px;
   margin-bottom: 10px;
-  outline: 5px solid #000; /* 5px black stroke around the logo */
-  outline-offset: 5px; /* Adds space between logo and outline */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Drop shadow */
+  outline: 5px solid #000;
+  outline-offset: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
-
 
 h1 {
   font-size: 2.5em;
@@ -70,14 +68,14 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; /* Full width within each grid column */
-  padding-top: 100%; /* Aspect ratio trick to make it square */
+  width: 100%;
+  padding-top: 100%;
   background-color: #000;
   color: #FFDD00;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border-radius: 15px; /* Rounded corners */
+  border-radius: 15px;
   position: relative;
 }
 
@@ -93,33 +91,61 @@ h2 {
     linear-gradient(rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.95)),
     url("https://images.unsplash.com/photo-1720048169970-9c651cf17ccd?q=80&w=2028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
-  background-repeat: no-reapeat;
-  background-position: center center;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #project-2 {
-   background-image: 
+  background-image: 
     linear-gradient(rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.95)),
     url("https://images.unsplash.com/photo-1637664067012-241eb64b7675?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
-  background-repeat: no-reapeat;
-  background-position: center center;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #project-3 {
-   background-image: 
-    linear-gradient(rgba(0,0.25,0,0) 0%, rgba(0,0.95,0,0)),
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.95)),
     url("https://images.unsplash.com/photo-1495954222046-2c427ecb546d?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
-  background-repeat: no-reapeat;
-  background-position: center center;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #project-4 {
-   background-image: 
+  background-image: 
     linear-gradient(rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.95)),
     url("https://images.unsplash.com/photo-1504370164829-8c6ef0c41d06?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
-  background-repeat: no-reapeat;
-  background-position: center center;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Back to Profile Button Styling */
+footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.back-to-profile {
+  display: inline-flex;
+  align-items: center;
+  background-color: #000;
+  color: #FFDD00;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-profile:hover {
+  background-color: #333;
+}
+
+.back-to-profile-icon {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
 }
