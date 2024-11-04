@@ -28,9 +28,9 @@ header {
 .logo {
   max-width: 50px;
   border-radius: 50%;
-  outline: 1.5px solid #000; /* Black outline around circular logo */
-  outline-offset: -1.5px; /* Ensures the outline stays snug to the circle */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  outline: 1px solid #000; /* Black outline around circular logo */
+  outline-offset: -1px; /* Ensures the outline stays snug to the circle */
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .profile-pic-container {
