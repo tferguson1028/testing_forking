@@ -28,8 +28,8 @@ header {
 .logo {
   max-width: 50px;
   border-radius: 50%;
-  outline: 5px solid #000; /* Black outline around circular logo */
-  outline-offset: -5px; /* Ensures the outline stays snug to the circle */
+  outline: 1.5px solid #000; /* Black outline around circular logo */
+  outline-offset: -1.5px; /* Ensures the outline stays snug to the circle */
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -41,7 +41,7 @@ header {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 1.5px solid #000;
+  border: 3px solid #000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
